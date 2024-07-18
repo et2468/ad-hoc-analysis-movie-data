@@ -16,11 +16,13 @@
 
 4. Jupyter kernel에서 요청에 담긴 명령어를 실행
 
-   - pandas를 이용한 csv파일 로드 명령어 확인
+   - `pd.read_csv('file.csv')`와 같이 csv파일 로드 명령어 확인
 
-   - server의 파일시스템에서 csv 파일을 로드
+   - Jupyter kernel은 이 파일을 찾기 위해 Jupyter server에 접근
 
-   - 해당 파일 경로를 참조하여 파일을 열고 kernel에서 데이터를 읽으며 연산
+   - Jupyter server의 파일 시스템에서 파일을 찾고 열어서 메모리에 저장
+
+   - kernel에서 데이터를 읽으며 연산
 
 5. kernel에서 계산된 결과값이 server를 통해 browser로 websocket 응답
 
