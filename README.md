@@ -13,124 +13,100 @@
 
 
 1. Jupyter Notebook
-
 - 스프레드시트, BI도구 없이 노트북 안에서 크로스 집계 가능
 - 웹브라우저지만 로컬호스트에서 작동
   - CSV, 엑셀 등 파일 업/다운로드 시간 소요 X
   - Notebook 자체도 Json으로 로컬 파일로 손쉽게 처리 가능 -> Git과도 호환, 관리 용이
 
 2. Pandas
-
 - 데이터 조작과 분석을 위한 강력한 Python 라이브러리
 
-- Matplotlib
-  - 시각화 라이브러리
-  - Jupyter Notebook에서 애드 혹 분석을 위해 주로 사용함
+3. Matplotlib
+- 시각화 라이브러리
+- Jupyter Notebook에서 애드 혹 분석을 위해 주로 사용함
 
-3. Seaborn
-
+4. Seaborn
 - Matplotlib을 기반으로 하는 고급 시각화 라이브러리
 - 보다 세련되고 다양한 그래프를 쉽게 그릴 수 있도록 도와줌
-
 
 
 ### 개발환경 세팅
 
 1. 콘다 가상환경 설정
 
-콘다 가상환경 생성
+- 콘다 가상환경 생성
 
-패키지 라이브러리 관리를 위해 가상환경을 생성한다.
+  - 패키지 라이브러리 관리를 위해 가상환경을 생성한다.
 
-`$ conda create -n pandas-practice-env python`
+  - `$ conda create -n pandas-practice-env python`
 
-`C:\Users\asus\anaconda3\envs\pandas-practice-env`에 가상환경 생성
+  - `C:\Users\asus\anaconda3\envs\pandas-practice-env`에 가상환경 생성
 
-`conda info --envs`로 가상환경 리스트 확인
-
-
-
-콘다 가상환경 실행
-
-`conda activate pandas-practice-env`
+  - `conda info --envs`로 가상환경 리스트 확인
 
 
+- 콘다 가상환경 실행
+  - `conda activate pandas-practice-env`
 
-시각화를 위한 라이브러리 설치
 
-`conda install pandas matplotlib seaborn`
+- 시각화를 위한 라이브러리 설치
+  - `conda install pandas matplotlib seaborn`
 
 
 
-패키지 목록 추출
-
-`conda list --export > conda_requirements.txt`
-
-이후 git관리 시 다른 로컬 가상환경에서 현재 레파지토리와 같은 환경을 설정하기 위함
-
-
+- 패키지 목록 추출
+  - `conda list --export > conda_requirements.txt`
+  - 이후 git관리 시 다른 로컬 가상환경에서 현재 레파지토리와 같은 환경을 설정하기 위함
 
 2. csv파일
+- 실습을 위한 샘플파일 다운로드
+  - 출처: https://lcj8390.tistory.com/93
 
-실습을 위한 샘플파일 다운로드
-
-출처: https://lcj8390.tistory.com/93
-
-
-
-movie-ratings.csv, 560레코드
+- movie-ratings.csv, 560레코드
 
 |   Film   | Genre | AudienceRatings |    RottenTomatoesRatings    | Budget(million) | Yearofrelease |
 | :------: | ----- | :-------------: | :-------------------------: | :-------------: | :-----------: |
 | 영화제목 | 장르  |    관객평점     | RottenTomatoes웹사이트 평점 |    영화예산     |   개봉연도    |
 
 
-
-jupyter notebook 실행 디렉토리로 이동
-
+- jupyter notebook 실행 디렉토리로 이동
 
 
 3. jupyter notebook 시작
 
-jupyter notebook 실행
+- jupyter notebook 실행
 
-`jupyter notebook`
+  - `jupyter notebook`
 
 
 
-python3의 새로운 파일 생성
+- python3 새로운 파일 생성
 
-생성하니 주피터 노트북의 버그로 인해 문제가 발생, 주피터 노트북을 최신 버전으로 업데이트
+  - 생성하니 주피터 노트북의 버그로 인해 문제가 발생, 주피터 노트북을 최신 버전으로 업데이트
 
-`pip install --upgrade jupyter`
+  - `pip install --upgrade jupyter`
 
-`New`버튼으로 `ipynb`생성 후 `pandas-practice.ipynb`로 이름 변경
+  - `New`버튼으로 `ipynb`생성 후 `pandas-practice.ipynb`로 이름 변경
 
 
 
 ### notebook환경에서 데이터 시각화 실습
+#### 0. csv 데이터 가져오기
 
 pandas, matplotlib 임포트
-
 ```python
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 ```
 
-
-
 현재 경로에 있는 movie-ratings.csv파일 불러오기
-
 ```python
 file_path = 'movie-ratings.csv'
 df = pd.read_csv(file_path)
 ```
 
-
-
 데이터프레임 확인
-
 ```python
 print(df.head())
 ```
@@ -139,9 +115,9 @@ print(df.head())
 
 
 
-1. 장르별 영화 수
+#### 1. 장르별 영화 수
 
-**크로스 집계**
+크로스 집계
 
 ![image-20240718221148589](img/image-20240718221148589.png)
 
@@ -156,7 +132,7 @@ print(genre_counts)
 
 
 
-**막대 그래프 시각화**
+막대 그래프 시각화
 
 ![image-20240718222350940](img/image-20240718222350940.png)
 
@@ -173,9 +149,9 @@ plt.show()
 
 
 
-2. 개봉 연도별 영화 수 
+#### 2. 개봉 연도별 영화 수 
 
-**크로스 집계**
+크로스 집계
 
 ```python
 year_counts = pd.crosstab(index=df['Yearofrelease'], columns='count')
@@ -185,7 +161,7 @@ year_counts = pd.crosstab(index=df['Yearofrelease'], columns='count')
 
 
 
-**선 그래프 시각화**
+선 그래프 시각화
 
 ```python
 plt.figure(figsize=(12, 6))
@@ -203,9 +179,9 @@ plt.show()
 
 
 
-3. 예산 범위와 장르별 영화 수
+#### 3. 예산 범위와 장르별 영화 수
 
-**크로스 집계**
+크로스 집계
 
 ![image-20240718223547611](img/image-20240718223547611.png)
 
@@ -219,7 +195,7 @@ print(budget_genre_counts)
 
 
 
-**스택드 바 그래프 시각화**
+스택드 바 그래프 시각화
 
 ![image-20240718223828208](img/image-20240718223828208.png)
 
