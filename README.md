@@ -58,7 +58,7 @@
   - `conda list --export > conda_requirements.txt`
   - 이후 git관리 시 다른 로컬 가상환경에서 현재 레파지토리와 같은 환경을 설정하기 위함
 
-2. csv파일
+2. csv파일 준비
 - 실습을 위한 샘플파일 다운로드
   - 출처: https://lcj8390.tistory.com/93
 
