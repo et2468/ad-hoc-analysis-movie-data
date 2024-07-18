@@ -93,7 +93,7 @@
 ### notebook환경에서 데이터 시각화 실습
 #### 0. csv 데이터 가져오기
 
-pandas, matplotlib 임포트
+pandas, matplotlib, seaborn 임포트
 ```python
 import pandas as pd
 import matplotlib.pyplot as plt
