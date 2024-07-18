@@ -8,7 +8,7 @@
 
 ### 사용기술
 
-`Jupyter Notebook`, `Pandas`, `Seaborn`
+`Jupyter Notebook`, `Pandas`, `Matplotlib`, `Seaborn`
 
 
 
