@@ -153,15 +153,17 @@ plt.show()
 
 크로스 집계
 
+![image-20240718222733539](img/image-20240718222733539.png)
+
 ```python
 year_counts = pd.crosstab(index=df['Yearofrelease'], columns='count')
 ```
 
-![image-20240718222733539](img/image-20240718222733539.png)
-
 
 
 선 그래프 시각화
+
+![image-20240718222815275](img/image-20240718222815275.png)
 
 ```python
 plt.figure(figsize=(12, 6))
@@ -175,7 +177,7 @@ plt.grid(True)
 plt.show()
 ```
 
-![image-20240718222815275](img/image-20240718222815275.png)
+
 
 
 
