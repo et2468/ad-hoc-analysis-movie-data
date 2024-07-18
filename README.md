@@ -1,4 +1,11 @@
-### 프로젝트 목적
+### 0️⃣ 목차
+
+[TOC]
+
+
+
+### 1️⃣ 프로젝트 목적
+
 - 데이터엔지니어링에서는 분산 스토리지의 데이터를 통합한 후 BI툴로 시각화한다.
 - 분산환경 구축과 빅데이터 처리, 시각화는 학습 초기단계에서 실습부담이 크다.
 - 이에 최소화된 환경에서 스몰데이터로 애드 혹 분석을 위한 시각화를 실습해본다. (감 잡기)
@@ -6,7 +13,7 @@
 
 
 
-### 사용기술
+### 2️⃣ 사용기술
 
 `Jupyter Notebook`, `Pandas`, `Matplotlib`, `Seaborn`
 
@@ -30,7 +37,8 @@
 - 보다 세련되고 다양한 그래프를 쉽게 그릴 수 있도록 도와줌
 
 
-### 개발환경 세팅
+
+### 3️⃣ 개발환경 세팅
 
 1. 콘다 가상환경 설정
 
@@ -58,6 +66,8 @@
   - `conda list --export > conda_requirements.txt`
   - 이후 git관리 시 다른 로컬 가상환경에서 현재 레파지토리와 같은 환경을 설정하기 위함
 
+
+
 2. csv파일 준비
 - 실습을 위한 샘플파일 다운로드
   - 출처: https://lcj8390.tistory.com/93
@@ -78,8 +88,6 @@
 
   - `jupyter notebook`
 
-
-
 - python3 새로운 파일 생성
 
   - 생성하니 주피터 노트북의 버그로 인해 문제가 발생, 주피터 노트북을 최신 버전으로 업데이트
@@ -90,7 +98,7 @@
 
 
 
-### notebook환경에서 데이터 시각화 실습
+### 4️⃣ notebook환경에서 데이터 시각화 실습
 #### 0. csv 데이터 가져오기
 
 pandas, matplotlib, seaborn 임포트
@@ -100,13 +108,19 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 ```
 
+
+
 현재 경로에 있는 movie-ratings.csv파일 불러오기
+
 ```python
 file_path = 'movie-ratings.csv'
 df = pd.read_csv(file_path)
 ```
 
+
+
 데이터프레임 확인
+
 ```python
 print(df.head())
 ```
